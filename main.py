@@ -54,7 +54,7 @@ for k, v in groups.items():
         logger.info(
             f'Result: https://vk.com/{k}?w=wall{v}_{request.get("post_id")}%2Fall'
         )
-        logger.info(f"Pause: {pause} minutes")
+        logger.info(f"Pause: {pause/60} minutes")
         time.sleep(pause)
     except Exception as e:
         logger.error(f"some problem with wall.post. \nError: {e}")
