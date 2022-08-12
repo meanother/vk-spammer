@@ -4,21 +4,21 @@ import time
 import uuid
 
 import vk_api
-from cred import token
+from cred import atoken
 from loguru import logger
 
 log_dir = pathlib.Path.home().joinpath("logs")
 log_dir.mkdir(parents=True, exist_ok=True)
 
 logger.add(
-    log_dir.joinpath("yandex-zen-spam-service-nikita.log"),
+    log_dir.joinpath("yandex-zen-spam-service-arty.log"),
     format="{time} [{level}] {module} {name} {function} - {message}",
     level="DEBUG",
     compression="zip",
     rotation="30 MB",
 )
 
-auth = vk_api.VkApi(token=token)
+auth = vk_api.VkApi(token=atoken)
 
 groups = {
     "adenformen": -102776528,  # Яндекс Дзен < Взаимопиар, взаимные подписки>
@@ -33,16 +33,18 @@ groups = {
 }
 
 msg = f"""
-💥 Добрый день! 
+Всем привет! 👋
 
-✍🏻 Взаимная подписка, пара лайков и пара комментов!
-✅ Скидывай скрины в личку, договоримся! 
-👉🏻 https://zen.yandex.ru/id/60b37982138da3784401d9bc
+🔥 Комментарии, лайки - взаимно!
+👉🏻 https://zen.yandex.ru/artydevx
 
-🤝🏻 {uuid.uuid4().hex}
+⚡️ Telegram: https://t.me/artydevc
+
+-----
+✅ {uuid.uuid4().hex}
 """
 
-zen_url = "https://zen.yandex.ru/id/60b37982138da3784401d9bc"
+zen_url = "https://zen.yandex.ru/artydevx"
 
 for k, v in groups.items():
     try:
